@@ -13,7 +13,7 @@
 #        X       - User's home directory
 #        X       - User's shell
 #        X       - User's password expiration date
-#               - Last logins for user (last 10 by default, or whatever provided parameter)
+#        X       - Last logins for user (last 10 by default, or whatever provided parameter)
 #        X       - Uptime and users on the system
 #        X       - Open TCP ports on the system
 #        X       - Indicator of whether the web server is up and running
@@ -82,7 +82,10 @@ then
 fi
 
 echo "Last $numberLastLogins logins for $userName:"
+loginData=$(last -$numberLastLogins $userName)
+echo "$loginData"
 echo ""
+#maybe do not include the wtmp data section. | grep -v "wtmp begins" at end of 85
 ##OpenLast logins for user
 
 
