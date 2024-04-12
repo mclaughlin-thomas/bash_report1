@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Name:         Thomas McLaughlin
-# Project:      Bash Project 1+
+# Project:      Bash Project 1
 # Date:         4/10/2024
-# File(s):      report1.sh
+# File(s):      report1.sh / report1
 # Description:  This bash script when run, will display relevant information about the user running the script.
 #               This bash script acts as a report showing information about whoever is running the script.
 #               This script will show the following information about the user's account:
@@ -70,7 +70,7 @@ echo ""
 #    Password expiration Field
 passwordExpirationLine=$(chage -l $userName | grep "Password expires")
 
-#           Password expires                                        : never
+#           Password expires                               : Jun 12, 2024
 
 passwordExpirationDate=$(echo "$passwordExpirationLine" | cut -d ':' -f 2) # -f because we want 2nd column of data as shown above
 echo "Password expires: $passwordExpirationDate"
@@ -87,11 +87,11 @@ then
 fi
 
 echo "Last $numberLastLogins logins for $userName:"
-loginData=$(last -$numberLastLogins $userName)
+loginData=$(last -$numberLastLogins $userName | grep -v "wtmp")
 echo "$loginData"
 echo ""
-#maybe do not include the wtmp data section. | grep -v "wtmp begins" at end of 85
-
+# using " | grep -v "wtmp" "to remove extra line that my script has that yours does not. 
+# note to self, try "wtmp begins" if "wtmp" does not work
 
 
 #    Uptime and users on this system Field
