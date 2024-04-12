@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name:         Thomas McLaughlin
-# Project:      Bash Project 1
+# Project:      Bash Project 1+
 # Date:         4/10/2024
 # File(s):      report1.sh
 # Description:  This bash script when run, will display relevant information about the user running the script.
@@ -13,7 +13,7 @@
 #        X       - User's home directory
 #        X       - User's shell
 #        X       - User's password expiration date
-#        X       - Last logins for user (last 10 by default, or whatever provided parameter)
+#               - Last logins for user (last 10 by default, or whatever provided parameter)
 #        X       - Uptime and users on the system
 #        X       - Open TCP ports on the system
 #        X       - Indicator of whether the web server is up and running
@@ -74,9 +74,13 @@ echo ""
 
 
 #Last logins for user
+numberLastLogins=10
+
 if [ $# -eq 1 ]
 then
    echo "parameter detected"
+   numberLastLogins=$1
+   echo "$numberLastLogins"
 else
    echo "Not one parameter"
 fi
