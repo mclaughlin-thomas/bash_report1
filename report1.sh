@@ -78,12 +78,10 @@ numberLastLogins=10
 
 if [ $# -eq 1 ]
 then
-   echo "parameter detected"
    numberLastLogins=$1
-   echo "$numberLastLogins"
-else
-   echo "Not one parameter"
 fi
+
+echo "Last $numberLastLogins logins for $userName:"
 echo ""
 ##OpenLast logins for user
 
@@ -103,6 +101,7 @@ echo "$tcpOpenPortData"
 
 echo ""
 #Open TCP ports
+
 
 
 #webserver up
