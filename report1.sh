@@ -8,15 +8,15 @@
 #               This bash script acts as a report showing information about whoever is running the script.
 #               This script will show the following information about the user's account:
 #
-#        X       - Username of the current user
-#        X       - User's full name
-#        X       - User's home directory
-#        X       - User's shell
-#        X       - User's password expiration date
-#        X       - Last logins for user (last 10 by default, or whatever provided parameter)
-#        X       - Uptime and users on the system
-#        X       - Open TCP ports on the system
-#        X       - Indicator of whether the web server is up and running
+#               - Username of the current user
+#               - User's full name
+#               - User's home directory
+#               - User's shell
+#               - User's password expiration date
+#               - Last logins for user (last 10 by default, or whatever parameter provided)
+#               - Uptime and users on the system
+#               - Open TCP ports on the system
+#               - Indicator of whether the web server is up and running
 
 
 echo "" # Blank line for readability
@@ -113,9 +113,9 @@ webServerStatusLines=$(ps aux | grep httpd)
 # root |  1  |  0.0 |  0.0 |166652|12000| ?  |  Ss  | Apr11 | 0:01 | /sbin/init splash
 
 if echo "webServerStatusLines" | grep -q 'root'; then
-    echo "The web server IS running!"
+    echo "The web server is running."
 else
-    echo "The web server IS NOT running!"
+    echo "The web server is not running."
 fi
 echo ""
 #webserver up
